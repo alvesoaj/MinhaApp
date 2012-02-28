@@ -10,4 +10,64 @@
         android:layout_height="wrap_content"
         android:text="@string/hello" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:hint="Digite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:hint="Digite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/sum"
+            android:layout_width="@dimen/largura_botoes"
+            android:layout_height="wrap_content"
+            android:text="@string/sum" />
+
+        <Button
+            android:id="@+id/sub"
+            android:layout_width="@dimen/largura_botoes"
+            android:layout_height="wrap_content"
+            android:text="@string/sub" />
+
+        <Button
+            android:id="@+id/mult"
+            android:layout_width="@dimen/largura_botoes"
+            android:layout_height="wrap_content"
+            android:text="@string/mult" />
+
+        <Button
+            android:id="@+id/div"
+            android:layout_width="@dimen/largura_botoes"
+            android:layout_height="wrap_content"
+            android:text="@string/div" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </LinearLayout>

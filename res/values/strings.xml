@@ -2,4 +2,10 @@
 <resources>
     <string name="app_name">MinhaApp</string>
     <string name="hello">Hello World, MinhaAppActivity!</string>
+    <string name="sum">+</string>
+    <string name="sub">-</string>
+    <string name="mult">*</string>
+    <string name="div">/</string>
+    <color name="red">#100</color>
+    <dimen name="largura_botoes">80dp</dimen>
 </resources>
