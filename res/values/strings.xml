@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Calc</string>
+    <string name="app_name">My Super App</string>
     <string name="title">Hello World, Be wellcome to my calc!</string>
     <string name="sum_lab">+</string>
     <string name="sub_lab">-</string>
@@ -8,5 +8,13 @@
     <string name="div_lab">/</string>
     <string name="hint_text">Input</string>
     <string name="result_lab">Result</string>
+    
+    <string name="to_do_list_name">My To Do List</string>
+    <string name="calc_name">My Calc</string>
+    
     <dimen name="button_dimen">80dp</dimen>
+    
+    <string name="to_do_hello_lab">"Hello: "</string>
+    
+    <string name="go_to_todolist_lab">Go to To Do List</string>
 </resources>

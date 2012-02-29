@@ -1,6 +1,7 @@
 package br.uespi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +14,7 @@ public class MinhaAppActivity extends Activity {
 	private Button sub;
 	private Button mult;
 	private Button div;
+	private Button goToToDoList;
 
 	private EditText num1;
 	private EditText num2;
@@ -29,6 +31,8 @@ public class MinhaAppActivity extends Activity {
 		sub = (Button) findViewById(R.id.sub);
 		mult = (Button) findViewById(R.id.mult);
 		div = (Button) findViewById(R.id.div);
+
+		goToToDoList = (Button) findViewById(R.id.go_to_todolist);
 
 		num1 = (EditText) findViewById(R.id.num1);
 		num2 = (EditText) findViewById(R.id.num2);
@@ -80,6 +84,15 @@ public class MinhaAppActivity extends Activity {
 				float res = value1 / value2;
 
 				result.setText(String.valueOf(res));
+			}
+		});
+
+		goToToDoList.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MinhaAppActivity.this, ToDoListActivity.class);
+				intent.putExtra("name", "AJ Alves");
+				startActivity(intent);
 			}
 		});
 	}

@@ -83,4 +83,18 @@
         android:text=""
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:contentDescription="@string/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/clipboard" />
+
+    <Button
+        android:id="@+id/go_to_todolist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/pencil"
+        android:text="@string/go_to_todolist_lab" />
+
 </LinearLayout>
