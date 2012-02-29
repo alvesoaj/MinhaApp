@@ -8,7 +8,7 @@
         android:id="@+id/myTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:text="@string/title" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -16,8 +16,19 @@
         android:layout_height="wrap_content" >
 
         <EditText
-            android:id="@+id/editText1"
-            android:hint="Digite"
+            android:id="@+id/num1"
+            android:maxLength="10"
+            android:inputType="number"
+            android:hint="@string/hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/num2"
+            android:maxLength="10"
+            android:inputType="number"
+            android:hint="@string/hint_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" >
@@ -25,12 +36,6 @@
             <requestFocus />
         </EditText>
 
-        <EditText
-            android:id="@+id/editText2"
-            android:hint="Digite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,34 +45,42 @@
 
         <Button
             android:id="@+id/sum"
-            android:layout_width="@dimen/largura_botoes"
+            android:layout_width="@dimen/button_dimen"
             android:layout_height="wrap_content"
-            android:text="@string/sum" />
+            android:text="@string/sum_lab" />
 
         <Button
             android:id="@+id/sub"
-            android:layout_width="@dimen/largura_botoes"
+            android:layout_width="@dimen/button_dimen"
             android:layout_height="wrap_content"
-            android:text="@string/sub" />
+            android:text="@string/sub_lab" />
 
         <Button
             android:id="@+id/mult"
-            android:layout_width="@dimen/largura_botoes"
+            android:layout_width="@dimen/button_dimen"
             android:layout_height="wrap_content"
-            android:text="@string/mult" />
+            android:text="@string/mult_lab" />
 
         <Button
             android:id="@+id/div"
-            android:layout_width="@dimen/largura_botoes"
+            android:layout_width="@dimen/button_dimen"
             android:layout_height="wrap_content"
-            android:text="@string/div" />
+            android:text="@string/div_lab" />
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Large Text"
+        android:text="@string/result_lab"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>
