@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ListDAO {
 	public static final String TABLE = "lists";
@@ -34,6 +35,7 @@ public class ListDAO {
 		ContentValues values = new ContentValues();
 
 		values.put(TABLE_DESC, description);
+		Log.w("mycalc", "OK OK OK OK");
 
 		return database.insert(TABLE, null, values);
 	}

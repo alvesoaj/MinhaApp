@@ -3,6 +3,7 @@ package br.uespi;
 import java.util.ArrayList;
 
 import br.uespi.daos.ListDAO;
+import br.uespi.models.List;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class ToDoListActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		listDataSource = new ListDAO(this);
 		listDataSource.open();
 
@@ -54,6 +55,12 @@ public class ToDoListActivity extends Activity {
 
 		todoItems = new ArrayList<String>();
 
+		ArrayList<List> allLists = listDataSource.getAllLists();
+
+		for (List list : allLists) {
+			todoItems.add(list.toString());
+		}
+
 		aa = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, todoItems);
 
@@ -65,6 +72,8 @@ public class ToDoListActivity extends Activity {
 					if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
 						todoItems.add(0, todoEditText.getText().toString());
 						aa.notifyDataSetChanged();
+						listDataSource.createList(todoEditText.getText()
+								.toString());
 						todoEditText.setText("");
 						return true;
 					}

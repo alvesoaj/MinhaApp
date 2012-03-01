@@ -16,7 +16,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL("" + " CREATE TABLE [lists] ( "
+		database.execSQL("CREATE TABLE [lists] ( "
 				+ " [_id] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, "
 				+ " [description] varchar(45) NOT NULL);");
 	}
