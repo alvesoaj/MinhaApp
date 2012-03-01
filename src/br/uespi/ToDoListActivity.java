@@ -8,11 +8,13 @@ import br.uespi.models.List;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnKeyListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -31,6 +33,8 @@ public class ToDoListActivity extends Activity {
 	private ArrayAdapter<String> aa;
 
 	private ArrayList<List> allLists = null;
+	
+	private AdapterContextMenuInfo acmi = null;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -86,14 +90,31 @@ public class ToDoListActivity extends Activity {
 			}
 		});
 
-		myListView.setOnItemClickListener(new OnItemClickListener() {
+		myListView
+				.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
+					@Override
+					public void onCreateContextMenu(ContextMenu menu, View v,
+							ContextMenuInfo menuInfo) {
+						acmi = (AdapterContextMenuInfo) menuInfo;
+						menu.setHeaderTitle(R.string.to_todolist_menu_title);
+						menu.add(0, 0, 0, R.string.to_todolist_edit);
+						menu.add(0, 1, 1, R.string.to_todolist_destroy);
+					}
+				});
+	}
 
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				Log.w("mycalc", aa.getItem(position));
-			}
-		});
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		if (item.getItemId() == 0) {
+			int x = acmi.position;
+			Log.w("mycalc", "1"+String.valueOf(x));
+		} else if (item.getItemId() == 1) {
+			int x = acmi.position;
+			Log.w("mycalc", "2"+String.valueOf(x));
+		} else {
+			return false;
+		}
+		return true;
 	}
 
 	@Override

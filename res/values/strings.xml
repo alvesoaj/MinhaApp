@@ -12,9 +12,12 @@
     <string name="to_do_list_name">My To Do List</string>
     <string name="calc_name">My Calc</string>
     
-    <dimen name="button_dimen">80dp</dimen>
-    
     <string name="to_do_hello_lab">"Hello: "</string>
     
     <string name="go_to_todolist_lab">Go to To Do List</string>
+    <string name="to_todolist_edit">Edit</string>
+    <string name="to_todolist_destroy">Destroy</string>
+    <string name="to_todolist_menu_title">Select an action</string>
+    
+    <dimen name="button_dimen">80dp</dimen>
 </resources>
