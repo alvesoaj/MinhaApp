@@ -2,6 +2,8 @@ package br.uespi;
 
 import java.util.ArrayList;
 
+import br.uespi.daos.ListDAO;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -13,6 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class ToDoListActivity extends Activity {
+	private ListDAO listDataSource;
+
 	private TextView todoHello;
 
 	private ListView myListView;
@@ -26,6 +30,9 @@ public class ToDoListActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		listDataSource = new ListDAO(this);
+		listDataSource.open();
 
 		setContentView(R.layout.to_do_list);
 
@@ -64,5 +71,17 @@ public class ToDoListActivity extends Activity {
 				return false;
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		listDataSource.open();
+		super.onResume();
+	}
+
+	@Override
+	protected void onPause() {
+		listDataSource.close();
+		super.onPause();
 	}
 }
