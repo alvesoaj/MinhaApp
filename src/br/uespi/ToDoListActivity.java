@@ -7,9 +7,12 @@ import br.uespi.models.List;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnKeyListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -26,6 +29,8 @@ public class ToDoListActivity extends Activity {
 
 	private ArrayList<String> todoItems;
 	private ArrayAdapter<String> aa;
+
+	private ArrayList<List> allLists = null;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -55,7 +60,7 @@ public class ToDoListActivity extends Activity {
 
 		todoItems = new ArrayList<String>();
 
-		ArrayList<List> allLists = listDataSource.getAllLists();
+		allLists = listDataSource.getAllLists();
 
 		for (List list : allLists) {
 			todoItems.add(list.toString());
@@ -78,6 +83,15 @@ public class ToDoListActivity extends Activity {
 						return true;
 					}
 				return false;
+			}
+		});
+
+		myListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Log.w("mycalc", aa.getItem(position));
 			}
 		});
 	}
