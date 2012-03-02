@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ToDoListActivity extends Activity {
 	private ListDAO listDataSource;
@@ -33,7 +34,7 @@ public class ToDoListActivity extends Activity {
 	private ArrayAdapter<String> aa;
 
 	private ArrayList<List> allLists = null;
-	
+
 	private AdapterContextMenuInfo acmi = null;
 
 	/** Called when the activity is first created. */
@@ -84,6 +85,12 @@ public class ToDoListActivity extends Activity {
 						listDataSource.createList(todoEditText.getText()
 								.toString());
 						todoEditText.setText("");
+						Log.w("MyCalc", "List adicionando com sucesso!");
+						Toast toast = Toast
+								.makeText(getApplicationContext(),
+										R.string.todo_list_toast_add,
+										Toast.LENGTH_LONG);
+						toast.show();
 						return true;
 					}
 				return false;
@@ -105,12 +112,31 @@ public class ToDoListActivity extends Activity {
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
+		List list;
 		if (item.getItemId() == 0) {
-			int x = acmi.position;
-			Log.w("mycalc", "1"+String.valueOf(x));
+			String desc = todoItems.get(acmi.position);
+
+			todoItems.remove(acmi.position);
+			aa.notifyDataSetChanged();
+
+			list = listDataSource.getListByDescription(desc);
+
+			todoEditText.setText(list.getDescription());
+
+			listDataSource.deleteList(list);
 		} else if (item.getItemId() == 1) {
-			int x = acmi.position;
-			Log.w("mycalc", "2"+String.valueOf(x));
+			String desc = todoItems.get(acmi.position);
+
+			todoItems.remove(acmi.position);
+			aa.notifyDataSetChanged();
+
+			list = listDataSource.getListByDescription(desc);
+
+			listDataSource.deleteList(list);
+
+			Toast toast = Toast.makeText(getApplicationContext(),
+					R.string.todo_list_toast_rmv, Toast.LENGTH_LONG);
+			toast.show();
 		} else {
 			return false;
 		}

@@ -53,8 +53,9 @@ public class ListDAO {
 	}
 
 	public List getListByDescription(String description) {
-		Cursor cursor = database.query(TABLE, ALL_COLUMNS, TABLE_DESC + " = "
-				+ description, null, null, null, null);
+		Cursor cursor = database.query(TABLE, ALL_COLUMNS,
+				String.format("%s = '%s'", TABLE_DESC, description), null,
+				null, null, null);
 		cursor.moveToFirst();
 		List list = cursorToList(cursor);
 		cursor.close();
@@ -64,7 +65,7 @@ public class ListDAO {
 	public ArrayList<List> getAllLists() {
 		ArrayList<List> lists = new ArrayList<List>();
 		Cursor cursor = database.query(TABLE, ALL_COLUMNS, null, null, null,
-				null, null);
+				null, "_id DESC");
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			List list = cursorToList(cursor);

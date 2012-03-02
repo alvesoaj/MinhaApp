@@ -19,5 +19,8 @@
     <string name="to_todolist_destroy">Destroy</string>
     <string name="to_todolist_menu_title">Select an action</string>
     
+    <string name="todo_list_toast_add">List successfully save</string>
+    <string name="todo_list_toast_rmv">List destroyed</string>
+    
     <dimen name="button_dimen">80dp</dimen>
 </resources>
