@@ -3,6 +3,8 @@ package br.uespi;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -90,10 +92,30 @@ public class MinhaAppActivity extends Activity {
 		goToToDoList.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(MinhaAppActivity.this, ToDoListActivity.class);
+				Intent intent = new Intent(MinhaAppActivity.this,
+						ToDoListActivity.class);
 				intent.putExtra("name", "AJ Alves");
 				startActivity(intent);
 			}
 		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 0, 0, getResources().getText(R.string.go_to_todolist_lab))
+				.setIcon(R.drawable.pencil);
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 0:
+			Intent intent = new Intent(MinhaAppActivity.this,
+					ToDoListActivity.class);
+			intent.putExtra("name", "Agora por menu");
+			startActivity(intent);
+			return true;
+		}
+		return false;
 	}
 }
